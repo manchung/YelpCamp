@@ -19,7 +19,7 @@ module.exports.createCampground = async (req, res, next) => {
         query: campground.location,
         limit: 1
     }).send();
-
+    
     campground.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     campground.geometry = geoData.body.features[0].geometry;
     const newCampground = new Campground(campground);
@@ -40,11 +40,12 @@ module.exports.showCampground = async (req, res) => {
                 path: 'author'
             }
         }).populate('author');
-        // console.log(campground);
+        // console.log(`campground.properties: ${campground.properties}`);
     } catch (e) {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
     }
+    // console.log(campground)
     res.render('./campgrounds/show', { campground });
 };
 

@@ -24,8 +24,8 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 // const MongoStore = require('connect-mongo');
-// const mongoUrl = process.env.MONGO_URL // Atlas
-const mongoUrl = 'mongodb://localhost:27017/yelp-camp'  // local db
+const mongoUrl = process.env.MONGO_URL // Atlas
+// const mongoUrl = 'mongodb://localhost:27017/yelp-camp'  // local db
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
